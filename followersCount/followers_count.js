@@ -8,7 +8,7 @@ function increaseCount() {
 function resetCount() {
     count = 0; // Reset the count to 0
     displayCount(); // Update the display with the reset count
-    alert("Your followers count has been reset!") // Pop up the reset message
+    alert("Your followers count has been reset!") // Popup the reset message
 }
 function checkCountValue() {
     if (count === 10) {
