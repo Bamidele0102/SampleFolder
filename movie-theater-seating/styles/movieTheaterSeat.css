@@ -82,16 +82,3 @@ h2 {
     background-color: #0056b3;
     transform: scale(1.05);
 }
-
-/* Footer Styles */
-.footer {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 600px;
-}
