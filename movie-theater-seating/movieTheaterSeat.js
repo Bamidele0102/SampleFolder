@@ -1,9 +1,13 @@
+// JavaScript for booking seats in a movie theatre
+
+// Initialize the theaterSeats array with all seats available ('O')
 const theaterSeats = [
-    ['X', 'O', 'X'],
-    ['O', 'X', 'O'],
-    ['X', 'O', 'X']
+    ['O', 'O', 'O'],
+    ['O', 'O', 'O'],
+    ['O', 'O', 'O']
 ];
 
+// Function to create the seating chart dynamically based on the theaterSeats array
 function createSeatingChart() {
     const seatingChart = document.getElementById('seating-chart');
     seatingChart.innerHTML = '';
@@ -19,6 +23,7 @@ function createSeatingChart() {
     }
 }
 
+// Function to book a specific seat
 function bookSeat(row, col) {
     if (theaterSeats[row][col] === 'O') {
         theaterSeats[row][col] = 'X';
@@ -29,6 +34,7 @@ function bookSeat(row, col) {
     }
 }
 
+// Function to update the seat status on the seating chart
 function updateSeatStatus(row, col, status) {
     const seats = document.getElementsByClassName('seat');
     const index = row * theaterSeats[row].length + col;
@@ -36,6 +42,7 @@ function updateSeatStatus(row, col, status) {
     seats[index].classList.add(status);
 }
 
+// Function to book a random available seat
 function bookRandomSeat() {
     const availableSeats = [];
 
@@ -57,6 +64,7 @@ function bookRandomSeat() {
     }
 }
 
+// Function to reset all seats to available
 function resetSeats() {
     for (let row = 0; row < theaterSeats.length; row++) {
         for (let col = 0; col < theaterSeats[row].length; col++) {
@@ -64,7 +72,8 @@ function resetSeats() {
         }
     }
     createSeatingChart();
-    alert('All seats are available now!');
+    alert('All seats have been reset to available!');
 }
 
+// Create the seating chart when the page loads
 window.onload = createSeatingChart;
