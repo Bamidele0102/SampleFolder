@@ -31,7 +31,7 @@ function bookSeat(row, col) {
 
 function updateSeatStatus(row, col, status) {
     const seats = document.getElementsByClassName('seat');
-    const index = row * 3 + col;
+    const index = row * theaterSeats[row].length + col;
     seats[index].classList.remove('available', 'booked');
     seats[index].classList.add(status);
 }
@@ -52,8 +52,19 @@ function bookRandomSeat() {
         const { row, col } = availableSeats[randomIndex];
         bookSeat(row, col);
     } else {
-        alert('All seats are already booked!');
+        alert('All seats are already booked! Resetting seats...');
+        resetSeats();
     }
+}
+
+function resetSeats() {
+    for (let row = 0; row < theaterSeats.length; row++) {
+        for (let col = 0; col < theaterSeats[row].length; col++) {
+            theaterSeats[row][col] = 'O';
+        }
+    }
+    createSeatingChart();
+    alert('All seats are available now!');
 }
 
 window.onload = createSeatingChart;
