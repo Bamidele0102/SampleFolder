@@ -16,8 +16,8 @@ This project aims to create a movie theater seating arrangement system that allo
 
 - Display a visual representation of the movie theater seating arrangement.
 - Allow users to select and book available seats.
-- Provide information about the movie, showtimes, and seat availability.
-- Support multiple movies and showtimes.
+<!-- Provide information about the movie, showtimes, and seat availability.
+- Support multiple movies and showtimes.-->
 
 ## Installation
 
