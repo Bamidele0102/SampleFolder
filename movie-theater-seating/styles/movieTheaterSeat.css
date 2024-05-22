@@ -1,27 +1,54 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 /* Styles the heading */
 h2 {
     text-align: center;
     margin: 20px 0;
+    padding: 10px;
     background-color: #007BFF;
-    color: #000;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Styles the seat's container */
 .seating-chart {
     display: grid;
     grid-template-columns: repeat(3, 70px);
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 /* Styles the individual seats */
 .seat {
     width: 70px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
     border: 1px solid #ccc;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Hover effect for seats */
+.seat:hover {
+    transform: scale(1.1);
 }
 
 /* Styles the booked seats */
@@ -31,17 +58,40 @@ h2 {
     color: white; /* Set the text color to white for booked seats */
 }
 
+/* Styles the available seats */
 .available {
-    background-color: #7FFF00; /* Light Green */
+    background-color: #28a745; /* Green */
+    color: white;
 }
 
 /* Styles the Select Random Seat button */
 .select-button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px;
+    padding: 15px 30px;
+    margin: 20px;
     background-color: #007BFF; /* Blue */
     color: white; /* Set the text color to white */
     border: none;
+    border-radius: 10px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Hover effect for button */
+.select-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Footer Styles */
+.footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
 }
