@@ -1,9 +1,8 @@
 /* Footer Styles */
 .footer {
-    margin-top: 20px;
+    margin: auto;
     padding: 10px;
-    background-color: #007BFF;
-    color: white;
+    background-color: #b5c9f0;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;

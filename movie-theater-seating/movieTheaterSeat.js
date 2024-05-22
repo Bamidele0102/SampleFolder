@@ -1,4 +1,5 @@
 // JavaScript for booking seats in a movie theatre
+let selectedSeat = null;
 
 // Initialize the theaterSeats array with all seats available ('O')
 const theaterSeats = [
@@ -17,13 +18,36 @@ function createSeatingChart() {
             const seat = document.createElement('div');
             seat.className = 'seat ' + (theaterSeats[row][col] === 'O' ? 'available' : 'booked');
             seat.innerText = String.fromCharCode(65 + row) + (col + 1);
-            seat.setAttribute('onclick', `bookSeat(${row}, ${col})`);
+            seat.setAttribute('onclick', `selectSeat(${row}, ${col})`);
             seatingChart.appendChild(seat);
         }
     }
 }
 
-// Function to book a specific seat
+// Function to select a seat
+function selectSeat(row, col) {
+    if (theaterSeats[row][col] === 'O') {
+        if (selectedSeat) {
+            updateSeatStatus(selectedSeat.row, selectedSeat.col, 'available');
+        }
+        selectedSeat = { row, col };
+        updateSeatStatus(row, col, 'selected');
+    } else {
+        alert(`Seat ${String.fromCharCode(65 + row)}${col + 1} is already taken!`);
+    }
+}
+
+// Function to book the selected seat
+function bookSelectedSeat() {
+    if (selectedSeat) {
+        bookSeat(selectedSeat.row, selectedSeat.col);
+        selectedSeat = null;
+    } else {
+        alert('Please select a seat first!');
+    }
+}
+
+// Modified bookSeat function to handle selected seats
 function bookSeat(row, col) {
     if (theaterSeats[row][col] === 'O') {
         theaterSeats[row][col] = 'X';
@@ -34,11 +58,11 @@ function bookSeat(row, col) {
     }
 }
 
-// Function to update the seat status on the seating chart
+// Modified updateSeatStatus function to handle selected seats
 function updateSeatStatus(row, col, status) {
     const seats = document.getElementsByClassName('seat');
     const index = row * theaterSeats[row].length + col;
-    seats[index].classList.remove('available', 'booked');
+    seats[index].classList.remove('available', 'booked', 'selected');
     seats[index].classList.add(status);
 }
 
@@ -71,8 +95,9 @@ function resetSeats() {
             theaterSeats[row][col] = 'O';
         }
     }
+    selectedSeat = null;
     createSeatingChart();
-    alert('All seats have been reset to available!');
+    alert('All seats are available and ready to be booked!');
 }
 
 // Create the seating chart when the page loads

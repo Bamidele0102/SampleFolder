@@ -64,6 +64,12 @@ h2 {
     color: white;
 }
 
+/* Styles the selected seats */
+.selected {
+    background-color: #ffc107; /* Yellow */
+    color: black;
+}
+
 /* Styles the Select Random Seat button */
 .select-button {
     padding: 15px 30px;
