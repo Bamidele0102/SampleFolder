@@ -1,0 +1,1 @@
+In this repository, I created an employee management system. I used buttons to trigger functions such as displaying all employees, calculating total salaries, filtering and displaying HR department employees, and finding employees by their IDs.
