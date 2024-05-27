@@ -4,13 +4,19 @@ let startTime, endTime;
 function startTest() {
     // Set the test text
     document.getElementById("inputText").value = testText;
+
+    // Enable user input and focus it
+    document.getElementById("userInput").readOnly = false;
+    document.getElementById("userInput").value = "";
+    document.getElementById("userInput").focus();
     
     // Reset results and timer
     document.getElementById("output").innerHTML = "";
     startTime = new Date().getTime();
     
-    // Change button text and functionality
+    // Enable the End Test button
     var button = document.getElementById("btn");
+    button.disabled = false;
     button.innerHTML = "End Test";
     button.onclick = endTest;
 }
@@ -45,6 +51,7 @@ function endTest() {
 
     // Reset the button
     var button = document.getElementById("btn");
-    button.innerHTML = "Start Test";
+    button.disabled = true;
+    button.innerHTML = "End Test";
     button.onclick = startTest;
 }
