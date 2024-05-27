@@ -1,0 +1,1 @@
+In this lab, you will explore concepts such as collecting user input through HTML forms, handling input data using JavaScript objects, manipulating arrays to manage book data, dynamically update to display books, and implementing functionalities like adding, editing, and deleting book entries.
