@@ -5,6 +5,7 @@ function addBook() {
     const authorName = document.getElementById('authorName').value;
     const bookDescription = document.getElementById('bookDescription').value;
     const pagesNumber = parseInt(document.getElementById('pagesNumber').value);
+    
     if (bookName && authorName && bookDescription && !isNaN(pagesNumber)) {
         const book = {
             name: bookName,
@@ -13,21 +14,26 @@ function addBook() {
             pagesNumber: pagesNumber
         };
         books.push(book);
-        showbooks();
+        showBooks();
         clearInputs();
     } else {
         alert('Please fill in all fields correctly.');
     }
 }
 
-function showbooks() {
-    const booksDiv = books.map((book, index) => `<h1>book Number: ${index + 1}</h1>
-        <p><strong>Book Name: </strong>${book.name}</p>
-        <p><strong>Author Name:</strong> ${book.authorName}</p>
-        <p><strong>Book Description:</strong> ${book.bookDescription}</p>
-        <p><strong>No. of Pages:</strong> ${book.pagesNumber} page(s)</p>`
-    );
-    document.getElementById('books').innerHTML = booksDiv.join('');
+function showBooks() {
+    const booksDiv = books.map((book, index) => `
+        <div class="book">
+            <h1>Book Number: ${index + 1}</h1>
+            <p><strong>Book Name: </strong>${book.name}</p>
+            <p><strong>Author Name:</strong> ${book.authorName}</p>
+            <p><strong>Book Description:</strong> ${book.bookDescription}</p>
+            <p><strong>No. of Pages:</strong> ${book.pagesNumber} page(s)</p>
+            <button onclick="editBook(${index})">Edit</button>
+            <button onclick="deleteBook(${index})">Delete</button>
+        </div>
+    `).join('');
+    document.getElementById('books').innerHTML = booksDiv;
 }
 
 function clearInputs() {
@@ -37,3 +43,25 @@ function clearInputs() {
     document.getElementById('pagesNumber').value = '';
 }
 
+function editBook(index) {
+    const book = books[index];
+    const newName = prompt('Enter new name:', book.name);
+    const newAuthor = prompt('Enter new author:', book.authorName);
+    const newDescription = prompt('Enter new description:', book.bookDescription);
+    const newPages = prompt('Enter new pages:', book.pagesNumber);
+
+    if (newName) book.name = newName;
+    if (newAuthor) book.authorName = newAuthor;
+    if (newDescription) book.bookDescription = newDescription;
+    if (newPages) book.pagesNumber = parseInt(newPages, 10);
+
+    showBooks(); // Refresh the book list
+}
+
+function deleteBook(index) {
+    books.splice(index, 1);
+    showBooks(); // Refresh the book list
+}
+
+// Initial call to display the books
+showBooks();
