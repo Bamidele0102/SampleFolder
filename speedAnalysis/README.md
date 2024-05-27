@@ -1,0 +1,1 @@
+In this project, I engage in string methods to create type testing functionality, enhancing their typing speed and accuracy and gaining insights into JavaScript's interaction with HTML elements. By practicing common phrases and receiving immediate feedback on metrics like words typed and words per minute (WPM), users can track their progress and identify areas for improvement.
